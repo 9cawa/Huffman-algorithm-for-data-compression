@@ -42,6 +42,9 @@ public class Main {
 //        String decoded = huffmanDecode(encoded.toString(), tree);
 //        System.out.println("\nРасшифровано: " + decoded);
 
+//        args = new String[] {"compress", "C:\\Users\\Aleksandr\\Desktop\\test", "test2.txt"};
+//        args = new String[] {"decompress", "C:\\Users\\Aleksandr\\Desktop\\test", "compressed.huf"};
+
         if (args[0].equals("compress")) {
             WorkWithFiles.fileCompress(args[1], args[2]);
         } else if (args[0].equals("decompress")) {
@@ -77,8 +80,8 @@ public class Main {
         while (codeTreeNodes.size() > 1) {
             Collections.sort(codeTreeNodes);
             //left и right - два узла с наименьшей частотой
-            CodeTreeNode right = codeTreeNodes.remove(codeTreeNodes.size() - 1);
             CodeTreeNode left = codeTreeNodes.remove(codeTreeNodes.size() - 1);
+            CodeTreeNode right = codeTreeNodes.remove(codeTreeNodes.size() - 1);
 
             //Связываем два этих узла с промежуточным
             CodeTreeNode parent = new CodeTreeNode(null, right.weight + left.weight, left, right);
